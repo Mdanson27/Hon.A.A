@@ -7,13 +7,20 @@
   <meta name="description" content="Official smart digital profile of Hon. Anthony Akol — Member of Parliament, Kilak North County, and Member of the Pan-African Parliament." />
   <title>Hon. Anthony Akol | Smart Profile</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23f5c400'/><text x='32' y='41' text-anchor='middle' font-size='27' font-family='Arial' font-weight='700' fill='%23181818'>AA</text></svg>">
-  <link rel="preload" as="image" href="picture.jpg" fetchpriority="high" />
-  <link rel="preload" as="image" href="parliament.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" />
+
+  <!-- Critical visual assets: real logos first, portrait second. -->
+  <link rel="preload" as="image" href="parliament.png" type="image/png" fetchpriority="high" />
+  <link rel="preload" as="image" href="pan-africa.png" type="image/png" fetchpriority="high" />
+  <link rel="preload" as="image" href="picture.jpg" type="image/jpeg" fetchpriority="auto" />
+
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="theme.css" />
+
+  <!-- Typography is intentionally non-critical so it never competes with logos. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" /></noscript>
 </head>
 <body>
   <div class="loader" id="loader" aria-hidden="true">
@@ -32,7 +39,7 @@
     <section class="panel hero" id="home">
       <div class="flag-line" aria-hidden="true"><i></i><i></i><i></i></div>
       <header class="topbar">
-        <a href="#home" class="brand" aria-label="Hon. Anthony Akol home"><img src="parliament.png" alt="Parliament of Uganda" decoding="async" /></a>
+        <a href="#home" class="brand" aria-label="Hon. Anthony Akol home"><img src="parliament.png" alt="Parliament of Uganda" width="738" height="225" fetchpriority="high" decoding="sync" /></a>
         <div class="top-actions">
           <button class="icon-button" id="shareBtn" aria-label="Share profile"><svg viewBox="0 0 24 24"><path d="M8.6 12.9l6.8 4M15.4 7l-6.8 4m10.9-5.9a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0zM9.7 12a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0zm9.8 6.9a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0z"/></svg></button>
           <a class="pill-button" href="tel:+256772421029">Contact</a>
@@ -56,11 +63,11 @@
         <div class="portrait-wrap">
           <div class="portrait-frame">
             <div class="portrait-badge">12<sup>TH</sup><span>PARLIAMENT</span></div>
-            <img class="portrait" src="picture.jpg" alt="Hon. Anthony Akol" fetchpriority="high" decoding="async" />
+            <img class="portrait" src="picture.jpg" alt="Hon. Anthony Akol" fetchpriority="auto" decoding="async" />
             <div class="portrait-overlay"></div>
             <div class="portrait-caption"><small>REPRESENTING</small><strong>Kilak North</strong><span>Amuru · Uganda</span></div>
           </div>
-          <div class="pap-seal"><img src="pan-africa.png" alt="Pan-African Parliament" loading="lazy" decoding="async" /></div>
+          <div class="pap-seal"><img src="pan-africa.png" alt="Pan-African Parliament" width="738" height="352" fetchpriority="high" decoding="sync" /></div>
         </div>
       </div>
     </section>
@@ -100,7 +107,7 @@
     <section class="panel connect" id="connect">
       <div class="container connect-layout">
         <div class="connect-copy">
-          <div class="dual-marks"><img src="parliament.png" alt="Parliament of Uganda" loading="lazy" decoding="async" /><span></span><img src="pan-africa.png" alt="Pan-African Parliament" loading="lazy" decoding="async" /></div>
+          <div class="dual-marks"><img src="parliament.png" alt="Parliament of Uganda" width="738" height="225" loading="lazy" decoding="async" /><span></span><img src="pan-africa.png" alt="Pan-African Parliament" width="738" height="352" loading="lazy" decoding="async" /></div>
           <p class="kicker">OFFICIAL CONTACT</p>
           <h2>Representation that remains <em>accessible to the people.</em></h2>
           <p>For constituency matters, official engagements and correspondence, use the direct contact channels below.</p>
