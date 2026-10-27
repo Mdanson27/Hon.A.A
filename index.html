@@ -7,16 +7,12 @@
   <meta name="description" content="Official smart digital profile of Hon. Anthony Akol — Member of Parliament, Kilak North County, and Member of the Pan-African Parliament." />
   <title>Hon. Anthony Akol | Smart Profile</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23f5c400'/><text x='32' y='41' text-anchor='middle' font-size='27' font-family='Arial' font-weight='700' fill='%23181818'>AA</text></svg>">
-
-  <!-- Critical visual assets: real logos first, portrait second. -->
   <link rel="preload" as="image" href="parliament.png" type="image/png" fetchpriority="high" />
   <link rel="preload" as="image" href="pan-africa.png" type="image/png" fetchpriority="high" />
   <link rel="preload" as="image" href="picture.jpg" type="image/jpeg" fetchpriority="auto" />
-
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="theme.css" />
-
-  <!-- Typography is intentionally non-critical so it never competes with logos. -->
+  <link rel="stylesheet" href="final.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
@@ -26,9 +22,7 @@
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader-lockup">
       <div class="loader-wordmark"><strong>PARLIAMENT</strong><small>UGANDA</small></div>
-      <div class="loader-handshake" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><path d="M12.2 23.6l9.6-8.4 8.2 4.1-6.9 6.2c-2.3 2.1-.8 5.9 2.3 5.9 1 0 2-.4 2.7-1l5.2-4.7 4.7 4.4M51.8 23.6l-9.6-8.4-7.9 3.9M16.8 27.7l-5.7 6.1 14.6 14.8c1.5 1.5 3.9 1.6 5.5.2l1.8-1.6m14.2-19.5 5.7 6.1-13.8 14c-1.7 1.7-4.4 1.7-6.1 0L22.8 37.6m17.7 6.8-8.7-8.1m4.5 12.5-8.7-8.1"/></svg>
-      </div>
+      <div class="loader-handshake" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M12.2 23.6l9.6-8.4 8.2 4.1-6.9 6.2c-2.3 2.1-.8 5.9 2.3 5.9 1 0 2-.4 2.7-1l5.2-4.7 4.7 4.4M51.8 23.6l-9.6-8.4-7.9 3.9M16.8 27.7l-5.7 6.1 14.6 14.8c1.5 1.5 3.9 1.6 5.5.2l1.8-1.6m14.2-19.5 5.7 6.1-13.8 14c-1.7 1.7-4.4 1.7-6.1 0L22.8 37.6m17.7 6.8-8.7-8.1m4.5 12.5-8.7-8.1"/></svg></div>
       <div class="loader-wordmark loader-wordmark--pap"><strong>PAP</strong><small>PAN-AFRICAN PARLIAMENT</small></div>
     </div>
     <div class="loader-copy"><span class="eyebrow">UGANDA · AFRICA</span><strong>PUBLIC SERVICE. ONE AFRICA.</strong></div>
@@ -45,7 +39,6 @@
           <a class="pill-button" href="tel:+256772421029">Contact</a>
         </div>
       </header>
-
       <div class="hero-grid container">
         <div class="hero-copy">
           <div class="status"><span></span> Public Service Profile</div>
@@ -59,7 +52,6 @@
             <button class="secondary-action" id="saveContact">Save Contact</button>
           </div>
         </div>
-
         <div class="portrait-wrap">
           <div class="portrait-frame">
             <div class="portrait-badge">12<sup>TH</sup><span>PARLIAMENT</span></div>
@@ -81,7 +73,6 @@
           <p>From finance and civil society leadership to national and continental representation, Hon. Akol’s experience spans public accountability, development and human rights.</p>
           <div class="competencies"><span>Finance</span><span>Economics</span><span>Human Rights</span><span>Food Security</span><span>Public Accountability</span></div>
         </div>
-
         <div class="leadership-card">
           <div class="card-label">CURRENT LEADERSHIP</div>
           <div class="current-grid">
@@ -121,12 +112,13 @@
         </div>
       </div>
       <footer class="profile-footer">
-        <span class="footer-name">HON. ANTHONY AKOL</span>
-        <a class="autominds-signature" href="https://automindsafrica.com" target="_blank" rel="noopener" aria-label="Made by AutoMinds Africa"><span class="signature-orbit"></span><span class="signature-copy"><small>MADE BY</small><strong>AutoMinds Africa</strong></span><span class="signature-arrow">↗</span></a>
+        <a class="autominds-signature" href="https://automindsafrica.com" target="_blank" rel="noopener" aria-label="Made by AutoMinds Africa">
+          <span class="signature-bulb" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.1 14.5A6 6 0 1 1 15.9 14.5c-.8.7-1.2 1.4-1.4 2.5h-5c-.2-1.1-.6-1.8-1.4-2.5Z"/></svg></span>
+          <span class="signature-copy"><small>MADE BY</small><strong>AutoMinds Africa</strong></span>
+        </a>
       </footer>
     </section>
   </main>
-
   <div class="toast" id="toast">Profile link copied</div>
   <script src="app.js"></script>
 </body>
