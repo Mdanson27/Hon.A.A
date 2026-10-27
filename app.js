@@ -9,35 +9,21 @@ const showToast = (message) => {
   toast.textContent = message;
   toast.classList.add('show');
   window.clearTimeout(showToast.timer);
-  showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 1800);
+  showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 1600);
 };
 
-const releaseLoader = () => {
+const hideLoader = () => {
   if (!loader || loader.classList.contains('is-hidden')) return;
-  const elapsed = performance.now() - bootStarted;
-  const minimumVisible = 1650;
-  const wait = Math.max(0, minimumVisible - elapsed);
-  window.setTimeout(() => {
-    requestAnimationFrame(() => {
-      loader.classList.add('is-hidden');
-      document.body.classList.remove('loading');
-    });
-  }, wait);
-};
-
-// Do not wait for large images or network resources before releasing the profile.
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', releaseLoader, { once: true });
-} else {
-  releaseLoader();
-}
-
-// Hard cap for reliability on slower phones.
-window.setTimeout(() => {
-  if (!loader) return;
   loader.classList.add('is-hidden');
   document.body.classList.remove('loading');
-}, 2200);
+};
+
+// The loader is purely decorative and never waits for images, fonts or network resources.
+const elapsed = performance.now() - bootStarted;
+window.setTimeout(() => requestAnimationFrame(hideLoader), Math.max(0, 850 - elapsed));
+
+// Absolute reliability cap for slow phones / delayed main thread.
+window.setTimeout(hideLoader, 1150);
 
 const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:Akol;Anthony;;;Hon.\nFN:Hon. Anthony Akol\nORG:Parliament of the Republic of Uganda\nTITLE:Member of Parliament, Kilak North County; Member of the Pan-African Parliament\nTEL;TYPE=CELL,VOICE:+256772421029\nTEL;TYPE=CELL,WHATSAPP:+256772421029\nEMAIL;TYPE=INTERNET:akolanthony@gmail.com\nADR;TYPE=WORK:;;Parliament Avenue;Kampala;;;Uganda\nNOTE:Member of Parliament for Kilak North County, Amuru District, Uganda and Member of the Pan-African Parliament.\nEND:VCARD`;
 
@@ -63,7 +49,6 @@ document.getElementById('shareBtn')?.addEventListener('click', async () => {
     text: 'Smart digital profile of Hon. Anthony Akol — Member of Parliament, Kilak North County and Member of the Pan-African Parliament.',
     url: window.location.href
   };
-
   try {
     if (navigator.share) {
       await navigator.share(shareData);
