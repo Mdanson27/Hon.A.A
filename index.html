@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#f5c400" />
   <meta name="description" content="Official smart digital profile of Hon. Anthony Akol — Member of Parliament, Kilak North County, and Member of the Pan-African Parliament." />
   <title>Hon. Anthony Akol | Smart Profile</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23f5c400'/><text x='32' y='41' text-anchor='middle' font-size='27' font-family='Arial' font-weight='700' fill='%23181818'>AA</text></svg>">
+  <link rel="preload" as="image" href="picture.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="parliament.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" />
@@ -14,18 +17,14 @@
 </head>
 <body>
   <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-aura" aria-hidden="true"></div>
     <div class="loader-lockup">
-      <div class="loader-mark loader-mark--uganda"><img src="parliament.png" alt="" /></div>
+      <div class="loader-wordmark"><strong>PARLIAMENT</strong><small>UGANDA</small></div>
       <div class="loader-handshake" aria-hidden="true">
         <svg viewBox="0 0 64 64"><path d="M12.2 23.6l9.6-8.4 8.2 4.1-6.9 6.2c-2.3 2.1-.8 5.9 2.3 5.9 1 0 2-.4 2.7-1l5.2-4.7 4.7 4.4M51.8 23.6l-9.6-8.4-7.9 3.9M16.8 27.7l-5.7 6.1 14.6 14.8c1.5 1.5 3.9 1.6 5.5.2l1.8-1.6m14.2-19.5 5.7 6.1-13.8 14c-1.7 1.7-4.4 1.7-6.1 0L22.8 37.6m17.7 6.8-8.7-8.1m4.5 12.5-8.7-8.1"/></svg>
       </div>
-      <div class="loader-mark loader-mark--africa"><img src="pan-africa.png" alt="" /></div>
+      <div class="loader-wordmark loader-wordmark--pap"><strong>PAP</strong><small>PAN-AFRICAN PARLIAMENT</small></div>
     </div>
-    <div class="loader-copy">
-      <span class="eyebrow">UGANDA · AFRICA</span>
-      <strong>PUBLIC SERVICE. ONE AFRICA.</strong>
-    </div>
+    <div class="loader-copy"><span class="eyebrow">UGANDA · AFRICA</span><strong>PUBLIC SERVICE. ONE AFRICA.</strong></div>
     <div class="loader-progress"><i></i></div>
   </div>
 
@@ -33,11 +32,9 @@
     <section class="panel hero" id="home">
       <div class="flag-line" aria-hidden="true"><i></i><i></i><i></i></div>
       <header class="topbar">
-        <a href="#home" class="brand" aria-label="Hon. Anthony Akol home"><img src="parliament.png" alt="Parliament of Uganda" /></a>
+        <a href="#home" class="brand" aria-label="Hon. Anthony Akol home"><img src="parliament.png" alt="Parliament of Uganda" decoding="async" /></a>
         <div class="top-actions">
-          <button class="icon-button" id="shareBtn" aria-label="Share profile">
-            <svg viewBox="0 0 24 24"><path d="M8.6 12.9l6.8 4M15.4 7l-6.8 4m10.9-5.9a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0zM9.7 12a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0zm9.8 6.9a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0z"/></svg>
-          </button>
+          <button class="icon-button" id="shareBtn" aria-label="Share profile"><svg viewBox="0 0 24 24"><path d="M8.6 12.9l6.8 4M15.4 7l-6.8 4m10.9-5.9a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0zM9.7 12a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0zm9.8 6.9a2.6 2.6 0 11-5.2 0 2.6 2.6 0 015.2 0z"/></svg></button>
           <a class="pill-button" href="tel:+256772421029">Contact</a>
         </div>
       </header>
@@ -59,14 +56,13 @@
         <div class="portrait-wrap">
           <div class="portrait-frame">
             <div class="portrait-badge">12<sup>TH</sup><span>PARLIAMENT</span></div>
-            <img class="portrait" src="picture.jpg" alt="Hon. Anthony Akol" fetchpriority="high" />
+            <img class="portrait" src="picture.jpg" alt="Hon. Anthony Akol" fetchpriority="high" decoding="async" />
             <div class="portrait-overlay"></div>
             <div class="portrait-caption"><small>REPRESENTING</small><strong>Kilak North</strong><span>Amuru · Uganda</span></div>
           </div>
-          <div class="pap-seal"><img src="pan-africa.png" alt="Pan-African Parliament" /></div>
+          <div class="pap-seal"><img src="pan-africa.png" alt="Pan-African Parliament" loading="lazy" decoding="async" /></div>
         </div>
       </div>
-      <div class="scroll-cue"><span>Explore Profile</span><i></i></div>
     </section>
 
     <section class="panel service" id="service">
@@ -80,12 +76,15 @@
         </div>
 
         <div class="leadership-card">
-          <div class="card-label">PUBLIC SERVICE JOURNEY</div>
+          <div class="card-label">CURRENT LEADERSHIP</div>
+          <div class="current-grid">
+            <article class="current-card"><b>2026–2031</b><h3>Member, Pan-African Parliament</h3><p>Representing the Republic of Uganda</p></article>
+            <article class="current-card"><b>2026–2031</b><h3>Chairperson</h3><p>Committee on Audit &amp; Public Accounts · Pan-African Parliament</p></article>
+            <article class="current-card"><b>2026–2031</b><h3>Chairperson</h3><p>Parliamentary Forum on Food Security, Population &amp; Development</p></article>
+            <article class="current-card"><b>2016–Present</b><h3>Member of Parliament</h3><p>Kilak North County · Amuru District</p></article>
+          </div>
+          <div class="past-label">EARLIER SERVICE</div>
           <div class="career-grid">
-            <article class="career-item career-current"><b>2026–2031</b><div><h3>Member, Pan-African Parliament</h3><p>Representing the Republic of Uganda</p></div></article>
-            <article class="career-item"><b>2026–2031</b><div><h3>Chairperson</h3><p>Committee on Audit &amp; Public Accounts · Pan-African Parliament</p></div></article>
-            <article class="career-item"><b>2026–2031</b><div><h3>Chairperson</h3><p>Parliamentary Forum on Food Security, Population &amp; Development</p></div></article>
-            <article class="career-item"><b>2016–Present</b><div><h3>Member of Parliament</h3><p>Kilak North County · Amuru District</p></div></article>
             <article class="career-item"><b>2021–2026</b><div><h3>Chairperson</h3><p>Acholi Parliamentary Group (APG)</p></div></article>
             <article class="career-item"><b>2016–2021</b><div><h3>Shadow Minister</h3><p>Finance, Planning &amp; Economic Development</p></div></article>
             <article class="career-item"><b>2014–2016</b><div><h3>Chairperson, Executive Board</h3><p>Gulu NGO Forum</p></div></article>
@@ -101,12 +100,11 @@
     <section class="panel connect" id="connect">
       <div class="container connect-layout">
         <div class="connect-copy">
-          <div class="dual-marks"><img src="parliament.png" alt="Parliament of Uganda" /><span></span><img src="pan-africa.png" alt="Pan-African Parliament" /></div>
+          <div class="dual-marks"><img src="parliament.png" alt="Parliament of Uganda" loading="lazy" decoding="async" /><span></span><img src="pan-africa.png" alt="Pan-African Parliament" loading="lazy" decoding="async" /></div>
           <p class="kicker">OFFICIAL CONTACT</p>
           <h2>Representation that remains <em>accessible to the people.</em></h2>
           <p>For constituency matters, official engagements and correspondence, use the direct contact channels below.</p>
         </div>
-
         <div class="contact-card">
           <a href="tel:+256772421029" class="contact-row"><span class="contact-icon">↗</span><div><small>MOBILE</small><strong>+256 772 421 029</strong></div><b>Call</b></a>
           <a href="mailto:akolanthony@gmail.com" class="contact-row"><span class="contact-icon">↗</span><div><small>EMAIL</small><strong>akolanthony@gmail.com</strong></div><b>Email</b></a>
@@ -115,14 +113,9 @@
           <button class="vcard-button" id="saveContactBottom">Save Hon. Anthony Akol to Contacts</button>
         </div>
       </div>
-
       <footer class="profile-footer">
         <span class="footer-name">HON. ANTHONY AKOL</span>
-        <a class="autominds-signature" href="https://automindsafrica.com" target="_blank" rel="noopener" aria-label="Made by AutoMinds Africa">
-          <span class="signature-orbit" aria-hidden="true"></span>
-          <span class="signature-copy"><small>MADE BY</small><strong>AutoMinds Africa</strong></span>
-          <span class="signature-arrow">↗</span>
-        </a>
+        <a class="autominds-signature" href="https://automindsafrica.com" target="_blank" rel="noopener" aria-label="Made by AutoMinds Africa"><span class="signature-orbit"></span><span class="signature-copy"><small>MADE BY</small><strong>AutoMinds Africa</strong></span><span class="signature-arrow">↗</span></a>
       </footer>
     </section>
   </main>
