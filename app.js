@@ -4,7 +4,6 @@ const loader = document.getElementById('loader');
 const toast = document.getElementById('toast');
 const bootStarted = performance.now();
 
-// Immediately request the two real institutional logos at highest priority.
 const logoSources = ['parliament.png', 'pan-africa.png'];
 const logoImages = logoSources.map((src) => {
   const img = new Image();
@@ -14,7 +13,6 @@ const logoImages = logoSources.map((src) => {
   return img;
 });
 
-// Convert the existing loader boxes into the actual logos as soon as JS executes.
 const loaderMarks = document.querySelectorAll('.loader-wordmark');
 loaderMarks.forEach((mark, index) => {
   mark.style.background = `#fff url('${logoSources[index]}') center / contain no-repeat`;
@@ -46,19 +44,16 @@ const imageReady = (img) => {
   });
 };
 
-// Warm-cache load: leave almost immediately once both real logos are decoded.
-// Cold/slow load: never let the loader block the profile for more than 1 second.
-Promise.race([
-  Promise.all(logoImages.map(imageReady)),
-  new Promise((resolve) => window.setTimeout(resolve, 720))
-]).then(() => {
+// Deliberate brand presentation: keep the real-logo loader visible for at least 2.2s,
+// but never allow it to block the profile beyond 2.8s.
+Promise.all(logoImages.map(imageReady)).finally(() => {
   const elapsed = performance.now() - bootStarted;
-  const minimumVisible = 420;
+  const minimumVisible = 2200;
   const remaining = Math.max(0, minimumVisible - elapsed);
-  window.setTimeout(() => requestAnimationFrame(hideLoader), remaining + 120);
+  window.setTimeout(() => requestAnimationFrame(hideLoader), remaining);
 });
 
-window.setTimeout(hideLoader, 1000);
+window.setTimeout(hideLoader, 2800);
 
 const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:Akol;Anthony;;;Hon.\nFN:Hon. Anthony Akol\nORG:Parliament of the Republic of Uganda\nTITLE:Member of Parliament, Kilak North County; Member of the Pan-African Parliament\nTEL;TYPE=CELL,VOICE:+256772421029\nTEL;TYPE=CELL,WHATSAPP:+256772421029\nEMAIL;TYPE=INTERNET:akolanthony@gmail.com\nADR;TYPE=WORK:;;Parliament Avenue;Kampala;;;Uganda\nNOTE:Member of Parliament for Kilak North County, Amuru District, Uganda and Member of the Pan-African Parliament.\nEND:VCARD`;
 
