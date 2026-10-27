@@ -4,6 +4,25 @@ const loader = document.getElementById('loader');
 const toast = document.getElementById('toast');
 const bootStarted = performance.now();
 
+// Immediately request the two real institutional logos at highest priority.
+const logoSources = ['parliament.png', 'pan-africa.png'];
+const logoImages = logoSources.map((src) => {
+  const img = new Image();
+  img.fetchPriority = 'high';
+  img.decoding = 'sync';
+  img.src = src;
+  return img;
+});
+
+// Convert the existing loader boxes into the actual logos as soon as JS executes.
+const loaderMarks = document.querySelectorAll('.loader-wordmark');
+loaderMarks.forEach((mark, index) => {
+  mark.style.background = `#fff url('${logoSources[index]}') center / contain no-repeat`;
+  mark.style.backgroundOrigin = 'content-box';
+  mark.style.padding = index === 0 ? '9px 12px' : '8px 10px';
+  [...mark.children].forEach((child) => { child.style.visibility = 'hidden'; });
+});
+
 const showToast = (message) => {
   if (!toast) return;
   toast.textContent = message;
@@ -18,12 +37,28 @@ const hideLoader = () => {
   document.body.classList.remove('loading');
 };
 
-// The loader is purely decorative and never waits for images, fonts or network resources.
-const elapsed = performance.now() - bootStarted;
-window.setTimeout(() => requestAnimationFrame(hideLoader), Math.max(0, 850 - elapsed));
+const imageReady = (img) => {
+  if (img.complete && img.naturalWidth) return Promise.resolve();
+  return new Promise((resolve) => {
+    const finish = () => resolve();
+    img.addEventListener('load', finish, { once: true });
+    img.addEventListener('error', finish, { once: true });
+  });
+};
 
-// Absolute reliability cap for slow phones / delayed main thread.
-window.setTimeout(hideLoader, 1150);
+// Warm-cache load: leave almost immediately once both real logos are decoded.
+// Cold/slow load: never let the loader block the profile for more than 1 second.
+Promise.race([
+  Promise.all(logoImages.map(imageReady)),
+  new Promise((resolve) => window.setTimeout(resolve, 720))
+]).then(() => {
+  const elapsed = performance.now() - bootStarted;
+  const minimumVisible = 420;
+  const remaining = Math.max(0, minimumVisible - elapsed);
+  window.setTimeout(() => requestAnimationFrame(hideLoader), remaining + 120);
+});
+
+window.setTimeout(hideLoader, 1000);
 
 const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:Akol;Anthony;;;Hon.\nFN:Hon. Anthony Akol\nORG:Parliament of the Republic of Uganda\nTITLE:Member of Parliament, Kilak North County; Member of the Pan-African Parliament\nTEL;TYPE=CELL,VOICE:+256772421029\nTEL;TYPE=CELL,WHATSAPP:+256772421029\nEMAIL;TYPE=INTERNET:akolanthony@gmail.com\nADR;TYPE=WORK:;;Parliament Avenue;Kampala;;;Uganda\nNOTE:Member of Parliament for Kilak North County, Amuru District, Uganda and Member of the Pan-African Parliament.\nEND:VCARD`;
 
