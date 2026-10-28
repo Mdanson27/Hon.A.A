@@ -21,6 +21,16 @@ loaderMarks.forEach((mark, index) => {
   [...mark.children].forEach((child) => { child.style.visibility = 'hidden'; });
 });
 
+// Keep the two principal offices intentionally separated so the title block
+// remains clean and predictable across narrow phone widths.
+const heroTitle = document.querySelector('.hero-title');
+if (heroTitle) {
+  heroTitle.innerHTML = `
+    <span class="hero-role">Member of Parliament, Uganda</span>
+    <span class="hero-role">Member of the Pan-African Parliament</span>
+  `;
+}
+
 const showToast = (message) => {
   if (!toast) return;
   toast.textContent = message;
